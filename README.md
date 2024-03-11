@@ -1,42 +1,27 @@
-# Examination
-<br/>
-<p align="center">
-  <a href="https://github.com/kalasoftware /Examination ">
-    <img src="https://ibb.co/3dyZZM3
-" alt="Logo" width="80" height="80">
-  </a>
+<h1 align="center" id="title">Examination</h1>
 
-  <h3 align="center">vb.net Project </h3>
+<p id="description">5 Students Are Working On The Project</p>
 
-  <p align="center">
-    5 Students Working On Same Project 
-    <br/>
-    <br/>
-  </p>
-</p>
+<h2>🛠️ Installation Steps:</h2>
 
-![License](https://img.shields.io/github/license/kalasoftware /Examination ) 
+<p>1. Creating Database</p>
 
-## Built With
+```
+Open query.txt copy and paste it in oracle database sql query box and then run it
+```
 
-VISUAL BASIC
+<p>2. Configuration Of Database Connection</p>
 
-* []()
+```
+Go To app.config and change the userid and password accordingly 
+```
 
-### Creating A Pull Request
+<p>3. Enjoy</p>
 
+<h2>🍰 Contribution Guidelines:</h2>
 
+5 Of Us Are Contributing
 
-## License
+<h2>🛡️ License:</h2>
 
-Distributed under the MIT License. See [LICENSE](https://github.com/kalasoftware /Examination /blob/main/LICENSE.md) for more information.
-
-## Authors
-
-* **Anonymous ** - *Bsc it 4rth sem * - [Anonymous ](https://github.com/kalasoftware/Examination ) - *Everything *
-
-## Acknowledgements
-
-* []()
-* []()
-* []()
+This project is licensed under the GPL
