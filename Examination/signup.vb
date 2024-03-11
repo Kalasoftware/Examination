@@ -40,7 +40,7 @@ Public Class signup
     Private Sub repassbox_TextChanged(sender As Object, e As EventArgs) Handles repassbox.TextChanged
         Dim passin = passbox.Text
         Dim repassin = repassbox.Text
-
+        ' showing the error 
         If passin <> repassin Then
             passmatch.Text = "Password Not Matched"
             passmatch.Visible = True
