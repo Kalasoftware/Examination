@@ -1,0 +1,5 @@
+create table euser(userid varchar(30),password varchar(30) )
+
+insert into euser values('kaliya','kaliya')
+
+alter table euser add constraint pk_euser primary key(userid)
