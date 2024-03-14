@@ -1,6 +1,6 @@
 ﻿Imports System.Configuration
 Imports System.Data.OleDb
-
+Imports globals
 Public Class Form1
     Dim con As OleDbConnection
 
@@ -11,6 +11,7 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles loginbtn.Click
         Dim userid = useridbox.Text
+        userin = useridbox.Text
         Dim pass = passbox.Text
         Try
             Dim qry As New String("select count(*) from euser where userid=? and password=?")

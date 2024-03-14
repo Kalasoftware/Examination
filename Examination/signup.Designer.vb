@@ -32,6 +32,14 @@ Partial Class signup
         Me.Label5 = New System.Windows.Forms.Label()
         Me.regbtn = New System.Windows.Forms.Button()
         Me.passmatch = New System.Windows.Forms.Label()
+        Me.spidbox = New System.Windows.Forms.TextBox()
+        Me.rollnobox = New System.Windows.Forms.TextBox()
+        Me.namebox = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.coursebox = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -107,7 +115,7 @@ Partial Class signup
         '
         'regbtn
         '
-        Me.regbtn.Location = New System.Drawing.Point(227, 243)
+        Me.regbtn.Location = New System.Drawing.Point(332, 278)
         Me.regbtn.Name = "regbtn"
         Me.regbtn.Size = New System.Drawing.Size(110, 25)
         Me.regbtn.TabIndex = 8
@@ -123,11 +131,88 @@ Partial Class signup
         Me.passmatch.Size = New System.Drawing.Size(0, 26)
         Me.passmatch.TabIndex = 9
         '
+        'spidbox
+        '
+        Me.spidbox.Location = New System.Drawing.Point(444, 101)
+        Me.spidbox.Name = "spidbox"
+        Me.spidbox.Size = New System.Drawing.Size(100, 20)
+        Me.spidbox.TabIndex = 10
+        '
+        'rollnobox
+        '
+        Me.rollnobox.Location = New System.Drawing.Point(444, 139)
+        Me.rollnobox.Name = "rollnobox"
+        Me.rollnobox.Size = New System.Drawing.Size(100, 20)
+        Me.rollnobox.TabIndex = 11
+        '
+        'namebox
+        '
+        Me.namebox.Location = New System.Drawing.Point(444, 182)
+        Me.namebox.Name = "namebox"
+        Me.namebox.Size = New System.Drawing.Size(100, 20)
+        Me.namebox.TabIndex = 12
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.25!)
+        Me.Label6.Location = New System.Drawing.Point(363, 101)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(64, 26)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "SPID"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.25!)
+        Me.Label7.Location = New System.Drawing.Point(363, 140)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(74, 26)
+        Me.Label7.TabIndex = 15
+        Me.Label7.Text = "Rollno"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.25!)
+        Me.Label8.Location = New System.Drawing.Point(363, 182)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(71, 26)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "Name"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.25!)
+        Me.Label9.Location = New System.Drawing.Point(363, 219)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(82, 26)
+        Me.Label9.TabIndex = 17
+        Me.Label9.Text = "Course"
+        '
+        'coursebox
+        '
+        Me.coursebox.FormattingEnabled = True
+        Me.coursebox.Location = New System.Drawing.Point(444, 223)
+        Me.coursebox.Name = "coursebox"
+        Me.coursebox.Size = New System.Drawing.Size(121, 21)
+        Me.coursebox.TabIndex = 18
+        '
         'signup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.coursebox)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.namebox)
+        Me.Controls.Add(Me.rollnobox)
+        Me.Controls.Add(Me.spidbox)
         Me.Controls.Add(Me.passmatch)
         Me.Controls.Add(Me.regbtn)
         Me.Controls.Add(Me.Label5)
@@ -155,4 +240,12 @@ Partial Class signup
     Friend WithEvents Label5 As Label
     Friend WithEvents regbtn As Button
     Friend WithEvents passmatch As Label
+    Friend WithEvents spidbox As TextBox
+    Friend WithEvents rollnobox As TextBox
+    Friend WithEvents namebox As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents coursebox As ComboBox
 End Class

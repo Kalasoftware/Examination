@@ -81,7 +81,7 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.25!)
-        Me.Label2.Location = New System.Drawing.Point(104, 142)
+        Me.Label2.Location = New System.Drawing.Point(83, 139)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(108, 26)
         Me.Label2.TabIndex = 5
@@ -91,6 +91,9 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.BackgroundImage = Global.Examination.My.Resources.Resources.pexels_anastasiya_gepp_1462630
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
