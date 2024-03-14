@@ -15,6 +15,7 @@ Open query.txt copy and paste it in oracle database sql query box and then run i
 ```
 Go To app.config and change the userid and password accordingly 
 ```
+<img src="https://ibb.co/v3mFfWQ" height="30%" width="100%" alt="here is the screenshot of app"/> 
 
 <p>3. Enjoy</p>
 
