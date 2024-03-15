@@ -7,6 +7,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim cons As String = ConfigurationManager.ConnectionStrings("con_str").ConnectionString
         con = New OleDbConnection(cons)
+        Me.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles loginbtn.Click

@@ -1,6 +1,6 @@
 ﻿Imports System.Configuration
 Imports System.Data.OleDb
-
+Imports globals
 Public Class dashboard
     Dim con As OleDbConnection
     Dim testflag As Integer
@@ -9,6 +9,26 @@ Public Class dashboard
         con = New OleDbConnection(connection)
         filllbl()
         displaytestd()
+        testgiven()
+    End Sub
+
+    Private Sub testgiven()
+        '' check if the testn and userin matches the button should be disabeld 
+
+        Try
+            Dim cquery As String = "select count(*) from result_u where userid=?"
+
+            Dim cmdc As New OleDbCommand(cquery, con)
+            cmdc.Parameters.AddWithValue("?", CInt(userin))
+            Dim crow As Integer = CInt(cmdc.ExecuteScalar())
+            If crow >= 1 Then
+                attbtn.Enabled = False
+            Else
+                attbtn.Enabled = True
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
     End Sub
 
@@ -22,6 +42,7 @@ Public Class dashboard
             If reader.Read() Then
                 testnamelbl.Text = reader("testname").ToString
                 testnlbl.Text = reader("testn").ToString
+                testnum = Convert.ToInt32(reader("testn"))
                 Dim testtime As DateTime = Convert.ToDateTime(reader("testtime"))
 
                 MsgBox(testtime.ToString)
@@ -53,6 +74,7 @@ Public Class dashboard
             Dim reader As OleDbDataReader = cmd.ExecuteReader
             If reader.Read() Then
                 spidlbl.Text = reader("spid").ToString
+                spid = Convert.ToInt32(reader("spid"))
                 rollnolbl.Text = reader("rollno").ToString
                 useridlbl.Text = reader("user_id").ToString
                 namelbl.Text = reader("name").ToString
@@ -67,5 +89,9 @@ Public Class dashboard
 
     Private Sub attbtn_Click(sender As Object, e As EventArgs) Handles attbtn.Click
         testquestion.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        result.Show()
     End Sub
 End Class

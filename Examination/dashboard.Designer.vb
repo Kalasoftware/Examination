@@ -42,6 +42,7 @@ Partial Class dashboard
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.timelbl = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.menustrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -227,11 +228,22 @@ Partial Class dashboard
         Me.timelbl.TabIndex = 16
         Me.timelbl.Text = "n"
         '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
+        Me.Button1.Location = New System.Drawing.Point(56, 323)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(182, 55)
+        Me.Button1.TabIndex = 18
+        Me.Button1.Text = "Result"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.timelbl)
         Me.Controls.Add(Me.Label6)
@@ -276,4 +288,5 @@ Partial Class dashboard
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents timelbl As Label
+    Friend WithEvents Button1 As Button
 End Class

@@ -46,6 +46,7 @@ Public Class signup
 
             Dim cmds As New OleDbCommand(stu, con)
             cmds.Parameters.AddWithValue("?", CInt(spidbox.Text))
+            spid = CInt(spidbox.Text)
             cmds.Parameters.AddWithValue("?", CInt(rollnobox.Text))
             cmds.Parameters.AddWithValue("?", userid)
             cmds.Parameters.AddWithValue("?", namebox.Text)
@@ -89,5 +90,10 @@ Public Class signup
             End If
 
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+        Form1.Show()
     End Sub
 End Class

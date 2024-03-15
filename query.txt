@@ -8,9 +8,9 @@ create table student_u(spid number,rollno number,user_id number,name varchar(50)
 
 create table course_u(course_id number, c_name varchar(40))
 
-create table question_u(qid number, quetxt varchar(2000), op1 varchar(40),op2 varchar(40),op3 varchar(40),op4 varchar(40),copt number)
+create table question_u(qid number, quetxt varchar(2000), op1 varchar(40),op2 varchar(40),op3 varchar(40),op4 varchar(40),copt number,testn number)
 
-create table result_u(resultid number, spid number,examdate date, score number)
+create table result_u(resultid number, spid number,examdate varchar(255),score number,testn number) // make testn foreign key
 
 alter table student_u add constraint pk_stu primary key(spid)
 alter table course_u add constraint pk_cour primary key(course_id)

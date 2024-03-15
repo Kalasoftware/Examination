@@ -12,3 +12,5 @@ D:\Visual basic files\Project\Examination\Examination\obj\Debug\Examination.xml
 D:\Visual basic files\Project\Examination\Examination\obj\Debug\Examination.pdb
 D:\Visual basic files\Project\Examination\Examination\obj\Debug\Examination.signup.resources
 D:\Visual basic files\Project\Examination\Examination\obj\Debug\Examination.dashboard.resources
+D:\Visual basic files\Project\Examination\Examination\obj\Debug\Examination.testquestion.resources
+D:\Visual basic files\Project\Examination\Examination\obj\Debug\Examination.result.resources
