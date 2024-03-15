@@ -25,7 +25,7 @@ alter table result_u add constraint fk_res foreign key(spid) references student_
 
 
 
-create table test_u(testn number,testname varchar(30),testtime timestamp,testflag number)
+create table test_u(testn number,testname varchar(30),testtime varchar (300),testflag number)
 alter table test_u add constraint pk_test primary key(testn)
 insert into test_u values(1,'vbnet',TIMESTAMP '2024-02-21 12:12:00')
 
