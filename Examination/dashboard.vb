@@ -9,7 +9,7 @@ Public Class dashboard
         con = New OleDbConnection(connection)
         filllbl()
         displaytestd()
-        attbtn.Enabled = False
+
     End Sub
 
     Private Sub displaytestd()
@@ -22,13 +22,18 @@ Public Class dashboard
             If reader.Read() Then
                 testnamelbl.Text = reader("testname").ToString
                 testnlbl.Text = reader("testn").ToString
-                Dim testtime As DateTime = Convert.ToDateTime(reader("testime"))
+                Dim testtime As DateTime = Convert.ToDateTime(reader("testtime"))
+
                 MsgBox(testtime.ToString)
                 timelbl.Text = reader("testtime").ToString
 
                 testflag = Convert.ToInt32(reader("testflag"))
-                If testflag = 1 Then
+                Dim teststart As Integer = Convert.ToInt32(reader("teststart"))
+
+                If teststart = 1 Then
                     attbtn.Enabled = True
+                Else
+                    attbtn.Enabled = False
                 End If
             End If
 
@@ -58,5 +63,9 @@ Public Class dashboard
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub attbtn_Click(sender As Object, e As EventArgs) Handles attbtn.Click
+        testquestion.Show()
     End Sub
 End Class

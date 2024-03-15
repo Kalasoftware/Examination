@@ -109,6 +109,12 @@
     <Compile Include="signup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="testquestion.Designer.vb">
+      <DependentUpon>testquestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="testquestion.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="dashboard.resx">
