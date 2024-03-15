@@ -1,5 +1,6 @@
 ﻿Imports System.Configuration
 Imports System.Data.OleDb
+Imports System.Diagnostics.Eventing.Reader
 Imports System.Security.Cryptography
 Imports globals
 
@@ -8,31 +9,60 @@ Public Class testquestion
     Dim questionIndex As Integer = 1
     Dim timerInterval As Integer = 3
     Dim timeshow As Integer = 3 ' time of timer to be shown for attempting the question 
-    Dim qcount As Integer = 0
+    Dim qcount As Integer = 1
+    Dim maxq As Integer = 0
     Dim rid As Integer = 0
     Private Sub testquestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         totalMarks = 0
+        Me.WindowState = FormWindowState.Maximized
         Dim con As String = ConfigurationManager.ConnectionStrings("con_str").ConnectionString
         conn = New OleDbConnection(con)
+        maxcountq()
+        If maxq = 0 Then
+            Me.Hide()
+            dashboard.Show()
+            MsgBox("no quesion to show")
+        End If
+        Timer1.Interval = timerInterval * 1000
+            Timer1.Start()
+            shwotimer.Start()
+
+            loadquesion()
 
         ' getting the question loaded 
-        Timer1.Interval = timerInterval * 1000
-        Timer1.Start()
-        shwotimer.Start()
-        loadquesion()
+
+
 
 
 
     End Sub
 
+    Private Sub maxcountq()
+        Try
+            conn.Open()
+            Dim query As String = "select count(*) from question_u where testn=?"
+            Dim cmd As New OleDbCommand(query, conn)
+            cmd.Parameters.AddWithValue("?", testnum)
+            maxq = Convert.ToInt32(cmd.ExecuteScalar())
+            MsgBox(maxq)
+            conn.Close()
+
+        Catch ex As Exception
+            conn.Close()
+        End Try
+    End Sub
+
     Private Sub loadquesion()
         Try
+            Me.WindowState = FormWindowState.Maximized
             If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
-            Dim query = "SELECT * FROM question_u where qid=?"
+            Dim query = "SELECT * FROM question_u where qid=? and testn=?"
+
             Dim cmd As New OleDbCommand(query, conn)
             cmd.Parameters.AddWithValue("?", questionIndex)
+            cmd.Parameters.AddWithValue("?", testnum)
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             If reader.Read() Then
                 queslbl.Text = reader("quetxt").ToString()
@@ -44,7 +74,9 @@ Public Class testquestion
                 RadioButton3.Text = options(2)
                 RadioButton4.Text = options(3)
                 qcount += 1
+
             End If
+
             reader.Close()
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
@@ -57,23 +89,23 @@ Public Class testquestion
         movetonext()
         calmarks()
         'time to give answer show here 
+        ' If qcount = maxq Then
+        'MsgBox(totalMarks)
+        'Me.Hide()
+        'submitmarks()
+        'result.Show()
+        'Timer1.Stop()
+        'End If
 
-        If qcount = 10 Then
-            MsgBox(DateTime.Today)
-            MsgBox(totalMarks)
-            Me.Hide()
-            submitmarks()
-            result.Show()
-            Timer1.Stop()
-            qcount = 0
-        End If
     End Sub
 
     Private Sub submitmarks()
         'sending the results to the result table '
         Dim insquery As String = "insert into result_u values(?,?,?,?,?,?)"
         Dim cmd As New OleDbCommand(insquery, conn)
-        rid = CInt(userin) * 1000
+        ranrid += 10
+        rid = CInt(userin) * ranrid
+
         conn.Open()
         Try
             cmd.Parameters.AddWithValue("?", CInt(rid))
@@ -98,7 +130,7 @@ Public Class testquestion
         Try
             ' Open the connection
             conn.Open()
-
+            ranrid += 10
             ' Fetch the correct option number from the database
             Dim query As String = "SELECT copt FROM question_u where qid=?"
             Dim cmd As New OleDbCommand(query, conn)
@@ -124,10 +156,18 @@ Public Class testquestion
     End Sub
 
     Private Sub movetonext()
-        questionIndex += 1
-
-
-        loadquesion()
+        If questionIndex <= maxq Then
+            questionIndex += 1
+            loadquesion()
+        Else
+            MsgBox("Test completed")
+            calmarks()
+            submitmarks()
+            result.Show()
+            Me.Hide()
+            'dashboard.Show()
+            Timer1.Stop()
+        End If
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click

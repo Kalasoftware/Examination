@@ -8,13 +8,13 @@ Public Class result
         Dim conn As String = ConfigurationManager.ConnectionStrings("con_str").ConnectionString
         con = New OleDbConnection(conn)
         fillres()
-
+        Me.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub fillres()
         Try
             con.Open()
-            Dim query As String = "SELECT s.spid, s.name, r.score AS Marks, r.testn AS TestNumber, r.examdate AS EXAMDATE FROM result_u r, student_u s WHERE r.userid = s.user_id AND userid = ?"
+            Dim query As String = "SELECT s.spid, s.name, r.score AS Marks, r.testn AS TestNumber, r.examdate AS EXAMDATE,t.testname FROM result_u r, student_u s,test_u t WHERE r.userid = s.user_id AND r.testn=t.testn and userid = ? "
             Dim cmd As New OleDbCommand(query, con)
             cmd.Parameters.AddWithValue("?", CInt(userin))
 
@@ -29,5 +29,10 @@ Public Class result
             con.Close()
         End Try
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Dispose()
+        dashboard.Show()
     End Sub
 End Class

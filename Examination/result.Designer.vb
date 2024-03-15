@@ -24,6 +24,7 @@ Partial Class result
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,11 +46,21 @@ Partial Class result
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Le Bhai/Bhen Dekh Lo Marks "
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(292, 381)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(179, 57)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "Dashbaord"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'result
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "result"
@@ -62,4 +73,5 @@ Partial Class result
 
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
 End Class

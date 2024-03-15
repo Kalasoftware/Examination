@@ -4,22 +4,27 @@ Imports globals
 Public Class dashboard
     Dim con As OleDbConnection
     Dim testflag As Integer
+
     Private Sub dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim connection As String = ConfigurationManager.ConnectionStrings("con_str").ConnectionString
         con = New OleDbConnection(connection)
+        Me.WindowState = FormWindowState.Maximized
         filllbl()
         displaytestd()
         testgiven()
+
     End Sub
 
     Private Sub testgiven()
         '' check if the testn and userin matches the button should be disabeld 
 
         Try
-            Dim cquery As String = "select count(*) from result_u where userid=?"
+            Dim cquery As String = "select count(*) from result_u where userid=? and testn=?"
 
             Dim cmdc As New OleDbCommand(cquery, con)
             cmdc.Parameters.AddWithValue("?", CInt(userin))
+            cmdc.Parameters.AddWithValue("?", testnum)
+
             Dim crow As Integer = CInt(cmdc.ExecuteScalar())
             If crow >= 1 Then
                 attbtn.Enabled = False
@@ -45,7 +50,7 @@ Public Class dashboard
                 testnum = Convert.ToInt32(reader("testn"))
                 Dim testtime As DateTime = Convert.ToDateTime(reader("testtime"))
 
-                MsgBox(testtime.ToString)
+                'MsgBox(testtime.ToString)
                 timelbl.Text = reader("testtime").ToString
 
                 testflag = Convert.ToInt32(reader("testflag"))
@@ -88,10 +93,12 @@ Public Class dashboard
     End Sub
 
     Private Sub attbtn_Click(sender As Object, e As EventArgs) Handles attbtn.Click
+        Me.Hide()
         testquestion.Show()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Hide()
         result.Show()
     End Sub
 End Class
