@@ -8,7 +8,7 @@ Public Class signup
     Private Sub signup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim constring As String = ConfigurationManager.ConnectionStrings("con_str").ConnectionString
         con = New OleDbConnection(constring)
-
+        Me.WindowState = FormWindowState.Maximized
         regbtn.Enabled = False
         fillcourse()
     End Sub

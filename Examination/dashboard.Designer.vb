@@ -43,6 +43,7 @@ Partial Class dashboard
         Me.Label7 = New System.Windows.Forms.Label()
         Me.timelbl = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.menustrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -112,7 +113,7 @@ Partial Class dashboard
         '
         Me.namelbl.AutoSize = True
         Me.namelbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
-        Me.namelbl.Location = New System.Drawing.Point(186, 121)
+        Me.namelbl.Location = New System.Drawing.Point(204, 121)
         Me.namelbl.Name = "namelbl"
         Me.namelbl.Size = New System.Drawing.Size(34, 31)
         Me.namelbl.TabIndex = 6
@@ -152,7 +153,7 @@ Partial Class dashboard
         '
         Me.useridlbl.AutoSize = True
         Me.useridlbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
-        Me.useridlbl.Location = New System.Drawing.Point(520, 128)
+        Me.useridlbl.Location = New System.Drawing.Point(520, 121)
         Me.useridlbl.Name = "useridlbl"
         Me.useridlbl.Size = New System.Drawing.Size(34, 31)
         Me.useridlbl.TabIndex = 9
@@ -222,7 +223,7 @@ Partial Class dashboard
         '
         Me.timelbl.AutoSize = True
         Me.timelbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
-        Me.timelbl.Location = New System.Drawing.Point(541, 400)
+        Me.timelbl.Location = New System.Drawing.Point(547, 400)
         Me.timelbl.Name = "timelbl"
         Me.timelbl.Size = New System.Drawing.Size(29, 31)
         Me.timelbl.TabIndex = 16
@@ -238,11 +239,22 @@ Partial Class dashboard
         Me.Button1.Text = "Result"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
+        Me.Button2.Location = New System.Drawing.Point(668, 346)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(120, 85)
+        Me.Button2.TabIndex = 19
+        Me.Button2.Text = "Logout"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.timelbl)
@@ -289,4 +301,5 @@ Partial Class dashboard
     Friend WithEvents Label7 As Label
     Friend WithEvents timelbl As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class
